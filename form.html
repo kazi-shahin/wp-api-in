@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
+        .logo-container { 
+            width: 250px;
+            display: block;
+            margin: auto; 
+            padding-top: 20px;
+         }
+         .logo-container img{ 
+            width: 100%; 
+         }
+        * { margin: 0; padding: 0; }
+        .form-check-input{margin-right: 10px;}
+        html { height: 100%; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background: #31abb9; background-repeat: no-repeat; background-image: -webkit-gradient(linear, left top, left bottom, from(#31abb9), to(#00a892)); background-image: -webkit-linear-gradient(top, #31abb9, #00a892); background-image: -moz-linear-gradient(top, #00353b, #00a892); background-image: -ms-linear-gradient(top, #00353b, #00a892); background-image: -o-linear-gradient(top, #00353b, #00a892); background-image: linear-gradient(top, #00353b, #00a892); filter: progid:DXImageTransform.Microsoft.gradient(start-colourStr='#00353b', end-colourStr='#00a892'); }
+        body { font-family: montserrat, arial, verdana; }
+        #msform { width: 650px; margin: 20px auto; text-align: center; position: relative; }
+        #msform fieldset { background: white; border: 0 none; border-radius: 3px; box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4); padding: 20px 30px; box-sizing: border-box; width: 80%; margin: 0 10%; position: relative; }
+        #msform fieldset:not(:first-of-type) { display: none; }
+       
+        #msform input,
+        #msform textarea,
+        #msform select {
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        color: #2C3E50;
+        font-size: 13px;
+        }
+        #msform .action-button { display: inline-block; width: 100px; background: #27AE60; font-weight: bold; color: white; border: 0 none; border-radius: 1px; cursor: pointer; padding: 10px 5px; margin: 10px 5px; }
+        #msform .action-button:hover, #msform .action-button:focus { box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60; }
+        .fs-title { font-size: 15px; text-transform: uppercase; color: #2C3E50; margin-bottom: 10px; }
+        .fs-subtitle { font-weight: normal; font-size: 13px; color: #666; margin-bottom: 20px; text-align: left; }
+
+        #progressbar { margin-bottom: 30px; overflow: hidden; counter-reset: step; }
+        #progressbar ul { padding-left: 0px !important; }
+        #progressbar li { list-style-type: none; color: white; text-transform: uppercase; font-size: 9px; width: 50%; float: left; position: relative; }
+        #progressbar li:before { content: counter(step); counter-increment: step; width: 20px; line-height: 20px; display: block; font-size: 10px; color: #333; background: white; border-radius: 3px; margin: 0 auto 5px auto; }
+        #progressbar li:after { content: ''; width: 100%; height: 2px; background: white; position: absolute; left: -50%; top: 9px; z-index: -1; }
+        #progressbar li:first-child:after { content: none; }
+        .label-style{display: block; text-align: left; margin-bottom: 4px; font-size: 13px;}
+        #progressbar li.active:before, #progressbar li.active:after { background: #eee809; color: #00353b; }
+    </style>
+</head>
+<body>
+ 
+    <div class="logo-container">
+        <img src="https://deshicommerce.com/wp-content/themes/deshi-commerce/assets/img/DC-logo.svg">
+    </div>
+    
+    <!-- multistep form -->
+    <form id="msform">
+  
+        <!-- progressbar -->
+        <ul id="progressbar">
+          <li class="active">Your Details</li>
+          <li>Your Project</li>
+        </ul>
+        <!-- fieldsets -->
+        
+        <fieldset>
+          
+          <h2 class="fs-title">Personal Details</h2>
+          
+          <label class="label-style" for="">Shop Name <span style="color: red;">*</span></label>
+          <input type="text" name="shop-name" placeholder="Shop Name" />
+          <label class="label-style" for="">Your Name <span style="color: red;">*</span></label>
+          <input type="text" name="your-name" placeholder="Your Name " />
+          <label class="label-style" for="">Email <span style="color: red;">*</span></label>
+          <input type="text" name="email" placeholder="Email" />
+          <label class="label-style" for="">Phone <span style="color: red;">*</span></label>
+          <input type="text" name="phone" placeholder="Phone" />
+          
+          <div style="text-align: left; margin-bottom: 15px; font-size: 13px;">
+            <label for="" style="margin-bottom: 7px; display: block;">Please Select Your Preferred Choice for receiving OTP message:</label>
+
+            <div style="text-align: left; font-size: 13px; margin-right: 20px;display: inline-flex;">
+                <input class="form-check-input" type="radio" name="otp_on" id="otp_method_sms" value="sms" checked="">
+                <label class="form-check-label" for="otp_method_sms">
+                    Phone
+                </label>
+            </div>
+
+            <div style="text-align: left; font-size: 13px; margin-right: 20px;display: inline-flex;">
+                <input class="form-check-input" type="radio" name="otp_on" id="otp_method_email" value="email">
+                <label class="form-check-label" for="otp_method_email">
+                    Email
+                </label>
+            </div> 
+        </div>
+
+          <div class="group">
+            <div style="display: flex; align-items: center;">
+                <input type="text" style="margin-bottom: 0;" placeholder="Example: fashion-world">
+                <span style="padding: 0 10px; background-color: #ccc; height: 100%; display: flex; height: 48px; align-items: center; border-top-right-radius: 3px; border-bottom-right-radius: 3px;">.deshicommerce.com</span>
+            </div>
+          </div>
+
+          <div style="margin: 15px 0;">
+            <div style="text-align: left; font-size: 13px; margin-bottom: 6px;display: flex; align-items: center;">
+                <input style="width: auto; margin: 0 10px 0 0;"  class="form-check-input" type="checkbox" name="accept_tos" value="1" checked="">
+                <label class="form-check-label" for="accept_tos">
+                    I agree to the terms and conditions of opening online shop.
+                </label>
+            </div>
+
+            <div style="text-align: left; font-size: 13px; margin-bottom: 6px;display: flex; align-items: center;">
+                <input style="width: auto; margin: 0 10px 0 0;" class="form-check-input" type="checkbox" name="receive_promotions" value="1" checked="">
+                <label class="form-check-label" for="accept_tos">
+                    I agree to receive further communications from DeshiCommerce.
+                </label>
+            </div>
+        </div>
+        
+          <input type="button" name="next" class="next action-button" value="Next" />
+          
+        </fieldset>
+        
+        <fieldset>
+          
+          <h2 class="fs-title">Verify & Create Shop</h2> 
+          
+          <label class="label-style" for="">Enter OTP here<span style="color: red;">*</span></label>
+          <input type="text" name="otp" placeholder="Enter the sent OTP" style="margin-bottom: 5px;" />
+          <div style=" font-size: 12px; margin-bottom:10px; text-align: left;">
+            <small id="otp-info-text" class="form-text text-muted">The OTP has been sent to your phone number: *********33</small>
+          </div>
+
+          <label class="label-style" for="">Create Password<span style="color: red;">*</span></label>
+          <input type="password" name="password" placeholder="Create Password" />
+
+          <label class="label-style" for="">Confirm Password<span style="color: red;">*</span></label>
+          <input type="password" name="confirm-password" placeholder="Confirm Password" />
+         
+      
+         
+      
+           
+          <input type="button" name="previous" class="previous action-button" value="Previous" />
+          <input type="submit" name="submit" class="submit action-button" value="Submit" />
+        </div>
+      
+        </fieldset>
+        
+      </form>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script>
+
+        // api endpoint
+        // https://github.com/kazi-shahin/wp-api-in 
+
+
+
+        
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating; //flag to prevent quick multi-click glitches
+
+        $(".next").click(function(){
+            if(animating) return false;
+            animating = true;
+            
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next(); 
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+            next_fs.show(); 
+            current_fs.animate({opacity: 0}, {
+                step: function(now, mx) {
+                    scale = 1 - (1 - now) * 0.2;
+                    left = (now * 50)+"%";
+                    opacity = 1 - now;
+                    current_fs.css({
+                'transform': 'scale('+scale+')',
+                'position': 'absolute'
+            });
+                    next_fs.css({'left': left, 'opacity': opacity});
+                }, 
+                duration: 800, 
+                complete: function(){
+                    current_fs.hide();
+                    animating = false;
+                }, 
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".previous").click(function(){
+            if(animating) return false;
+            animating = true;
+            
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+            previous_fs.show(); 
+            current_fs.animate({opacity: 0}, {
+                step: function(now, mx) {
+                    scale = 0.8 + (1 - now) * 0.2;
+                    left = ((1-now) * 50)+"%";
+                    opacity = 1 - now;
+                    current_fs.css({'left': left});
+                    previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+                }, 
+                duration: 800, 
+                complete: function(){
+                    current_fs.hide();
+                    animating = false;
+                }, 
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".submit").click(function(){
+            return false;
+        })
+    </script>
+</body>
+</html>
